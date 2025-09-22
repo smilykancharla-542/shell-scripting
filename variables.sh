@@ -1,0 +1,7 @@
+#!/bin/bash
+
+person1=smily
+person2=bharath
+echo "$perosn1 :hi $perosn2,how are you"
+echo "$person2:hello $person1,i am fine how about you"
+echo "$person1:fine thank you
