@@ -20,7 +20,7 @@ validate(){
     fi  
 
 }
-dnf installed list mysql
+dnf list installed mysql
 if [ $? -ne 0 ]; then
     dnf install mysql -y
     validate $? "MYSQL"
@@ -29,11 +29,11 @@ else
 fi
 
 
-dnf installed list mysql
+dnf list installed nginx
 if [ $? -ne 0 ]; then
     dnf install nginx -y
     validate $? "nginx"
 else
-    echo -e " $Y skipped: mysql is already installed $N"
+    echo -e " $Y skipped: nginx is already installed $N"
 fi
 
