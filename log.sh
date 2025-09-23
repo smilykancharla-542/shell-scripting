@@ -9,9 +9,9 @@ LOG_FOLDER="/var/log/shell-scripting"
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
 LOG_FILE= "$LOG_FOLDER/$SCRIPT_NAME.log"
 
-mkdir -p $LOGFOLDER
+mkdir -p $LOG_FOLDER
 
-echo "script started time is: $date"
+echo "script started time is: ($date)"
 
 user=$(id -u)
 
@@ -30,7 +30,7 @@ validate(){
 }
 dnf list installed mysql &>>$LOG_FILE
 if [ $? -ne 0 ]; then
-    dnf install mysql -y
+    dnf install mysql -y &>>$LOG_FILE
     validate $? "MYSQL"
 else
     echo -e " $Y skipped: mysql is already installed $N"
@@ -39,7 +39,7 @@ fi
 
 dnf list installed nginx &>>$LOG_FILE
 if [ $? -ne 0 ]; then
-    dnf install nginx -y
+    dnf install nginx -y &>>$LOG_FILE
     validate $? "nginx"
 else
     echo -e " $Y skipped: nginx is already installed $N"
