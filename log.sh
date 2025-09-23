@@ -7,11 +7,11 @@ N="\e[0m"
 
 LOG_FOLDER="/var/log/shell-scripting"
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
-LOG_FILE= "$LOG_FOLDER/$SCRIPT_NAME.log"
+LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME.log"
 
 mkdir -p $LOG_FOLDER
 
-echo "script started time is: ($date)"
+echo "script started time is: $(date)"
 
 user=$(id -u)
 
